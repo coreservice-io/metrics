@@ -17,11 +17,22 @@ We can use metrics to measure the performance for code performance, api calling,
 ## Examples
 ```go
 // init config and choose the db
-NewMetrics(
-    10 * time.Minute(),
+if err := metrics.NewMetrics(
+    20*time.Second,
     metrics.InfluxDB,
-    metrics.InfluxDBConfig{},
-)
+    metrics.InfluxDBConfig{
+        ServerUrl:      "127.0.0.1:8086",
+        OrganizationId: "1234",
+        BucketId:       "abcd",
+        Measurement:    "Aloha",
+        Token:          "abcd1234",
+        AlignTimestamp: true,
+    },
+); err != nil {
+    // handle error
+    // NOTICE: The connection status with influxdb is not guaranteed here.
+}
+
 
 // call method 1
 metrics.Gauge("api.query.buckets").Update(1)
