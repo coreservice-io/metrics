@@ -20,7 +20,7 @@ We can use metrics to measure the performance for code performance, api calling,
 if err := metrics.NewMetrics(
     20*time.Second,
     metrics.InfluxDB,
-    metrics.InfluxDBConfig{
+    &metrics.InfluxDBConfig{
         ServerUrl:      "127.0.0.1:8086",
         OrganizationId: "1234",
         BucketId:       "abcd",
