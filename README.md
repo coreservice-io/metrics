@@ -14,6 +14,11 @@ We can use metrics to measure the performance for code performance, api calling,
 - `Meter`
   - A Meter measures event occurrences count and rate:
 
+## Install
+```
+go get github.com/coreservice-io/metrics
+```
+
 ## Examples
 ```go
 // init config and choose the db
